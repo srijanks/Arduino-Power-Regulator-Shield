@@ -31,5 +31,6 @@ Files and Documents:
 - SHIELDBOARD.PcbDoc has the PCB ready to be inspected on Altium Designer
 - 6pin header.PcbLib is a pcb library I created to replicate Arduino 6/8/10 pin headers on a PCB for the shield
 - powerregulatorarduino.PrjPcb loads the whole project with all its components and settings.
+- fabassembly.PCBDwf has fabrication rules as well as assembly rules. 
 
 Ps. this is my first PCB design project so if I made some major and/or silly erros let  me get away with that. While very basic circuitry, doing this project and its pcb design process flow taught me more than any other resource. Thanks!
