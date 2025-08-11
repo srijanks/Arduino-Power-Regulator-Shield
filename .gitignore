@@ -23,6 +23,6 @@ Project Outputs*/
 # Project hierarchy auto-generated file
 *.PrjPcbStructure
 *.PrjMbdStructure
-
+*.OutJob
 # Folder to save each comparison results
 CompareHistory/
