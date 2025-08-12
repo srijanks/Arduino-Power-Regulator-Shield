@@ -1,0 +1,36 @@
+* ideal_buck_fixed.cir
+* Simple ideal buck regulator (fixed-duty PWM, gated by EN)
+* Subckt pins: VIN SW GND OUT EN
+* Usage: XU1 VIN SW GND OUT EN IDEAL_BUCK
+* Notes:
+*  - VPWM duty = Ton / Tperiod. Here Ton=833n, Tperiod=2u => D ~= 0.4165 (5V from 12V approx)
+*  - This is a behavioral/ideal switch model for testing LC, ripple, startup. Not an IC model.
+*  - It expects your external inductor between the SW net and your output net, and output cap to ground.
+
+******************************
+* Subcircuit
+******************************
+.subckt IDEAL_BUCK VIN SW GND OUT EN
+
+* raw PWM generator (0 -> 1 waveform)
+* PULSE(Vinitial Von Delay Trise Tfall Ton Tperiod)
+VPWM_RAW raw_pwm 0 PULSE(0 1 0 1n 1n 833n 2u)
+
+* Gate switch: pass raw_pwm to pwm_node only when EN > 2.5 V
+* Sgate: Sgate <N+> <N-> <NC+> <NC-> model
+Sgate pwm_node 0 raw_pwm 0 SWGATE
+.model SWGATE SW(Ron=1 Roff=1e9 Vt=2.5)
+
+* Main power switch: connects VIN to internal SW_node when pwm_node > 0.5V
+Smain SW_node 0 VIN 0 SWMAIN
+.model SWMAIN SW(Ron=0.01 Roff=1e9 Vt=0.5)
+
+* Tie the external SW pin to the internal SW_node (small resistor to avoid floating node warnings)
+Rlink SW SW_node 1m
+
+* Note: OUT pin is not driven inside this subckt — the external inductor should be connected between SW (switch node)
+* and the OUT net in your schematic. This subckt only provides the switching action on VIN -> SW_node.
+.ends IDEAL_BUCK
+
+* End of file
+
