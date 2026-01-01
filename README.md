@@ -43,4 +43,5 @@ Files and Documents:
 - fabassembly.PCBDwf has fabrication rules as well as assembly rules. 
 - models folder conatins the necessary .cir files that provide models for simulation of the power regulator as well as the high dielectric constant capacitors on the input side. 
 
-Ps. this is my first PCB design project so if I made some major and/or silly erros let  me get away with that. While very basic circuitry, doing this project and its pcb design process flow taught me more than any other resource. Thanks!
+
+Ps. this is my first PCB design project so if I made some major and/or silly erros, please go easy on me. While very basic circuitry, doing this project and its pcb design process flow taught me a lot. Thanks!
