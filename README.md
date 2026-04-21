@@ -28,9 +28,6 @@ As part of the power regulator PCB design project, the circuit was simulated usi
 
 First I drew the schematic, next I copied it, made some changes and tested them using SPICE. However, TI chips usually do not have SPICE models available for their chips, especially for TPS562201DDCR. Hence I needed to search online to find a .cir file that can emulate the functions of the power regulator chip and use that on the simulation. All the model .cir files can be found in the models folder.
 
-The simulation results demonstrate the output voltage stability and transient behavior of the regulator, verifying the effectiveness of the chosen components and layout design. 
-A sample transient analysis waveform is included below, showing the regulator’s output voltage settling time and steady-state performance under typical operating conditions.
-![Transient Analysis Waveform](transient_analysis.png)
 
 
 Files and Documents:
