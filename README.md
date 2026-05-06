@@ -23,7 +23,7 @@ Functional Requirements:
 TLDR
 Take 12V DC input-> utilizing the circuitry that includes capacitors, an inductor and two flyback resistors based on TPS562201DDCR power regulator chio, step down input to 5V -> feed 5V to arduino 
 
-# SPICE Simulation and Transient Analysis
+# SPICE Simulation
 As part of the power regulator PCB design project, the circuit was simulated using Altium Designer’s built-in Mixed-Signal Circuit Simulator (SPICE engine). Transient analysis was performed to evaluate the regulator’s dynamic response to changes in input voltage and load conditions.
 
 First I drew the schematic, next I copied it, made some changes and tested them using SPICE. However, TI chips usually do not have SPICE models available for their chips, especially for TPS562201DDCR. Hence I needed to search online to find a .cir file that can emulate the functions of the power regulator chip and use that on the simulation. All the model .cir files can be found in the models folder.
